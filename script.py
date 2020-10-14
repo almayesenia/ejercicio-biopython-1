@@ -5,13 +5,13 @@ from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 import os
 def summarize_contents(filename):
-	SeqRec = SeqIO.read(filenames, "genbank")
-	print("Name: ", SeqRec.name)
+	all_records = []
+	SeqRec = list(SeqIO.parse(filename,"genbank"))
 	print("Path: ",os.path.dirname(filename))
-	records = list(SeqIO.parse(filename,"genbank"))
-	print("Num_record = %i records" %len(records))
+	print("Num_record = %i records" %len(SeqRec))
+	
 	for seq_record in SeqIO.parse(filename,"genbank"):
+		print("Name: ",seq_record.name)
 		print("ID :",SeqRec.id)
-
 	
 sunnarize_contents(filename)
