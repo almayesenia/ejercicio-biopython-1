@@ -1,3 +1,4 @@
+#creacion de script
 from Bio.Seq import Seq
 from Bio.SeqFeatures import SeqFeatures
 from Bio import SeqIO
