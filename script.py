@@ -3,20 +3,28 @@ from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 import os
 
-filename = "/mnt/c/Users/USUARIO/Desktop/3Semestre/Bioinformatica/biopython-notebook/notebooks/data/ls_orchid.gbk"
-listaOs = []
+filename = "/mnt/c/Users/USUARIO/Desktop/biopython-notebook/notebooks/data/ls_orchid.gbk"
+
+#Creacion de funcion
 def summarize_contents(filename):
+	listaOs = []
 	listaOs = os.path.split(filename)
-	print("file :", listaOs[1])
+	Cadena = " "
+
+	#Rutas
+	Cadena = ("file :" + listaOs[1] + "\npath: " + listaOs[0])
+
+	#Numero de records
 	all_records = []
 	record = list(SeqIO.parse(filename,"genbank"))
-	print("Path: ",os.path.dirname(filename))
-	print("Num_record = %i records" %len(record))
-	print("\n")
-	for seq_r in SeqIO.parse(filename,"genbank"):
-		all_records.append(seq_r.name)
-		print("Nombre: ",seq_r.name)
-		print("ID :",seq_r.id)
-		print("Descripcion: ", seq_r.description)
-		print("Seq :", seq_r.seq	
-sunnarize_contents(filename)
+	Cadena += ("\nNum_record =" + str(len(record)))
+	for seq_rcd in SeqIO.parse(filename,"genbank"):
+		all_records.append(seq_rcd.name)
+		Cadena += ("\nName: " + seq_rcd.name)
+		Cadena += ("\nID :"+ str(seq_rcd.id))
+		Cadena += ("\nDescription: " + str(seq_rcd.description))
+		Cadena += ("\n")
+	return Cadena
+#Imprimir la funcion
+resultados = summarize_contents(filename)
+print(resultados)
