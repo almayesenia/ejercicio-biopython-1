@@ -15,11 +15,9 @@ def summarize_contents(filename):
 	Cadena = ("file :" + listaOs[1] + "\npath: " + listaOs[0])
 
 	#Numero de records
-	all_records = []
 	record = list(SeqIO.parse(filename,"genbank"))
 	Cadena += ("\nNum_record =" + str(len(record)))
 	for seq_rcd in SeqIO.parse(filename,"genbank"):
-		all_records.append(seq_rcd.name)
 		Cadena += ("\nName: " + seq_rcd.name)
 		Cadena += ("\nID :"+ str(seq_rcd.id))
 		Cadena += ("\nDescription: " + str(seq_rcd.description))
