@@ -3,7 +3,7 @@ from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 import os
 
-filename = "/mnt/c/Users/USUARIO/Desktop/biopython-notebook/notebooks/data/ls_orchid.gbk"
+filename = "/mnt/c/Users/Epicasso/Desktop/ejercicio-biopython/data/ls_orchid.gbk"
 
 #Creacion de funcion
 def summarize_contents(filename):
