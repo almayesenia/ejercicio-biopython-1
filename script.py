@@ -8,7 +8,7 @@ filename = "/mnt/c/Users/Epicasso/Desktop/ejercicio-biopython/data/ls_orchid.gbk
 #Creacion de funcion
 def summarize_contents(filename):
 	listaOs = os.path.split(filename)
-	record = os.path.split(filename)
+	record = list(SeqIO.parse(filename, "genbank"))
 	#Creacion de diccionario
 	d = {}
 	d['File:'] = listaOs[1]
