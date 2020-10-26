@@ -8,7 +8,12 @@ filename = "/mnt/c/Users/Epicasso/Desktop/ejercicio-biopython/data/ls_orchid.gbk
 #Creacion de funcion
 def summarize_contents(filename):
 	listaOs = os.path.split(filename)
-	record = list(SeqIO.parse(filename, "genbank"))
+	listaExt = os.path.splitext(filename)
+	if (listaExt[1] == ".gbk"):
+		type_file= "genbank"
+	else: 
+		type_file= "fasta"
+	record = list(SeqIO.parse(filename, type_file))
 	#Creacion de diccionario
 	d = {}
 	d['File:'] = listaOs[1]
@@ -19,7 +24,7 @@ def summarize_contents(filename):
 	d['IDs:'] = []
 	d['Descriptions'] = []
 	#Registro de records
-	for seq_rcd in SeqIO.parse(filename,"genbank"):
+	for seq_rcd in SeqIO.parse(filename,type_file):
 		d['Names:'].append(seq_rcd.name)
 		d['IDs:'].append(seq_rcd.id)
 		d['Descriptions'].append(seq_rcd.description)
